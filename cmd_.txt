@@ -1,0 +1,234 @@
+    1  su root
+    2  su root
+    3  su
+    4  vncserver 
+    5  ifconfig
+    6  ps aux | grep vnc
+    7  su
+    8  vim .vnc/config 
+    9  ps aux | grep vnc
+   10  vncserver 
+   11  su
+   12  ps aux | grep vnc
+   13  vim .vnc/xstartup 
+   14  vim /etc/sysconfig/vncservers 
+   15  su
+   16  /sbin/sysctl service vncserver start
+   17  ls /proc/sys/
+   18  ps aux | grep vnc
+   19  /sbin/service vncserver start
+   20  /sbin/service vncserver@ start
+   21  /sbin/service vncserver@:1 start
+   22  systemctl status vncserver@:1.service
+   23  su
+   24  systemctl status vncserver@:1.service
+   25  /sbin/service vncserver@:1 start
+   26  systemctl status vncserver@:1.service
+   27  su
+   28  vim .vnc/config 
+   29  vim .vnc/sesman_passwd-stagiaire@localhost.localdomain\:10 
+   30  vim .vnc/xstartup 
+   31  vim .vnc/localhost.localdomain\:1.pid 
+   32  vim .vnc/localhost.localdomain\:1.log 
+   33  su
+   34  sudo systemctl enable vncserver@:1.service
+   35  ln -s '/etc/systemd/system/vncserver@\:1.service' '/etc/systemd/system/multi-user.target.wants/vncserver@:1.service' 
+   36  ps aux | grep vnc
+   37  sudo systemctl start vncserver@:1.service
+   38  ps aux | grep vnc
+   39  sudo reboot
+   40  ps aux | grep vnc
+   41  vim .vnc/xstartup 
+   42  vim /etc/sysconfig/vncservers 
+   43  su
+   44  /sbin/sysctl service vncserver start
+   45  ls /proc/sys/
+   46  ps aux | grep vnc
+   47  /sbin/service vncserver start
+   48  /sbin/service vncserver@ start
+   49  /sbin/service vncserver@:1 start
+   50  systemctl status vncserver@:1.service
+   51  su
+   52  systemctl status vncserver@:1.service
+   53  /sbin/service vncserver@:1 start
+   54  systemctl status vncserver@:1.service
+   55  su
+   56  vim .vnc/config 
+   57  vim .vnc/sesman_passwd-stagiaire@localhost.localdomain\:10 
+   58  vim .vnc/xstartup 
+   59  vim .vnc/localhost.localdomain\:1.pid 
+   60  vim .vnc/localhost.localdomain\:1.log 
+   61  su
+   62  sudo systemctl enable vncserver@:1.service
+   63  ln -s '/etc/systemd/system/vncserver@\:1.service' '/etc/systemd/system/multi-user.target.wants/vncserver@:1.service' 
+   64  ps aux | grep vnc
+   65  sudo systemctl start vncserver@:1.service
+   66  ps aux | grep vnc
+   67  sudo reboot
+   68  vim Bureau/res.desktop
+   69  chmod +s Public/res_change.sh 
+   70  cd Public/
+   71  ls
+   72  cd Public/
+   73  ls
+   74  ls -al
+   75  chmod +x res_change.sh 
+   76  ls -al
+   77  ps aux | grep res
+   78  ps aux | grep res_
+   79  cd Public/
+   80  vim ../Bureau/res.desktop
+   81  vim ../Bureau/Changer\ Résolution.desktop 
+   82  cd Public/
+   83  vim res_change.sh 
+   84  su
+   85  pwd
+   86  ll
+   87  clear
+   88  docker run --name my_mysql -e MYSQL_ROOT_PASSWORD=wordpress -e MYSQL_DATABASE=wordpress  -e MYSQL_USER=wordpress   -e MYSQL_PASSWORD=wordpress -d mysql:5.7
+   89  docker ps
+   90  docker rm docker1 docker2
+   91  docker rm docker1
+   92  docker rm -f docker1
+   93  docker rm -f docker2
+   94  docker ps
+   95  clar
+   96  clear
+   97  docker run --name my_admin -d --link my_mysql:db -p 8080:80 -e  WORDPRESS_DB_HOST=db:3306 -e WORDPRESS_DB_USER=wordpress -e WORDPRESS_DB_PASSWORD=wordpress wordpress:latest
+   98  docker ps
+   99  docker run --name php_admin -d --link my_mysql:db -p 8081:80 phpmyadmin/phpmyadmin
+  100  docker ps
+  101  clar
+  102  clear
+  103  docker ps
+  104* [B
+  105  docker volume create --help
+  106   docker volume create my-vol
+  107  docker volume ls
+  108  docker volume inspect
+  109  docker volume inspect ls
+  110  docker volume inspect my-vol
+  111  docker ps
+  112  docker ps -a -q
+  113  docker ps
+  114  docker rm -f php_admin
+  115  docker rm -f my_admin
+  116  docker rm -f my_sql
+  117  docker rm -f my_mysql
+  118  docker ps
+  119  clear
+  120  docker run -d --name myapache2 -mount my-vol:/app2 httpd:latest
+  121  sudo docker run -d --name myapache --mount source=my-vol,target=/app httpd:latest
+  122  docker ps
+  123  docker inspect myapache
+  124  clear
+  125  docker inspect myapache
+  126  clear
+  127  docker inspect myapache
+  128  clear
+  129  docker exec myapache ls /app
+  130  docker exec myapache touch /app/file.txt
+  131  docker exec myapache ls /app
+  132  docker run -d --name myapache2 -v my-vol:/app2 httpd:latest
+  133  ls /var/lib/docker/volumes/my-vol/_data
+  134  sudo ls /var/lib/docker/volumes/my-vol/_data
+  135  sudo docker exec myapache2 ls /app2/
+  136  docker exec myapache touch /app2/file2.txt
+  137  docker exec myapache2 touch /app2/file2.txt
+  138  sudo ls /var/lib/docker/volumes/my-vol/_data
+  139  sudo docker exec myapache2 ls /app2/
+  140  ifconfig
+  141  docker network ls
+  142  docker network inspect bridge
+  143  docker network ls
+  144  clear
+  145  ifconfig
+  146  docker run -d --name docker2  busybox
+  147  docker ps
+  148  docker run -dt --name docker2  busybox
+  149  docker ps
+  150  docker rm -f docker2
+  151  docker run -dt --name docker2  busybox
+  152  docker ps
+  153  docker exec docker2 ifconfig
+  154  docker network create --driver bridge my-network
+  155  docker ps
+  156  docker exec docker2 ifconfig
+  157  docker network ls
+  158  docker network inspect my-network
+  159  docker ps
+  160  docker run -d -name myapache4 --network my-network httpd:latest
+  161  docker run -d --name myapache4 --network my-network httpd:latest
+  162  docker ps
+  163  docker network inspect my-network
+  164  docker exec docker4 ifconfig
+  165  docker exec myapache4 ifconfig
+  166  clear
+  167  docker ps
+  168  docker network ls
+  169  docker network inspect bridge
+  170  docker network inspect my-network 
+  171  docker exec docker4 ifconfig
+  172  docker exec myapache4 ifconfig
+  173* docker exec docker2 ifc
+  174  docker exec myapache4 ifconfig
+  175  clear
+  176  docker run -dt --name docker11 --network my-network busybox
+  177  docker run -dt --name docker12 --network my-network busybox
+  178  docker run -d --name docker11 busybox
+  179  docker run -dt --name docker11 busybox
+  180  docker run -dt --name docker8 busybox
+  181  docker run -dt --name docker9 busybox
+  182  docker exec docker11 ping docker12 
+  183  docker exec docker8 ping docker9 
+  184  docker exec docker8 ping docker9
+  185  docker ps
+  186  docker exec docker8 ping docker12
+  187  docker exec docker8 ping docker11
+  188  docker exec docker11 ping docker8
+  189  docker exec docker11 ping 172.18.0.2
+  190  docker exec docker11 ping 172.18.0.3
+  191  clear
+  192  docker ps
+  193  docker exec myapache9 ifconfig
+  194  docker exec myapache8 ifconfig
+  195  docker exec myapache4 ifconfig
+  196  docker exec docker2 ifconfig
+  197  docker exec docker8 ifconfig
+  198  docker exec docker9 ifconfig
+  199  docker exec docker11 ifconfig
+  200  docker exec docker12 ifconfig
+  201  docker network ls
+  202  docker network inspect my-network 
+  203  docker network inspect bridge 
+  204  docker network disconnect bridge docker8
+  205  docker network inspect bridge 
+  206  docker network connect  my-network  docker8
+  207  docker network inspect my-network 
+  208  docker run -d --name dockerN busybox
+  209  docker exec dockerN ifconfig
+  210  docker start dockerN
+  211  docker exec dockerN ifconfig
+  212  docker ps
+  213  docker rm -f dockerN
+  214  docker run -dt --name dockerN busybox
+  215  docker ps
+  216  docker exec dockerN ifconfig
+  217  docker network bridge dockerN
+  218   clear
+  219  docker login
+  220  docker image
+  221  docker images
+  222  docker tag wordpress getdevops/wordpress:v1.0
+  223  docker images
+  224  docker push getdevops/wodpress:v1.0
+  225  docker push getdevops/wordpress:v1.0
+  226  docker push getdevops/wodpress:v1.1
+  227  docker push getdevops/wordpress:v1.1
+  228  docker tag wordpress getdevops/wordpress:v1.1
+  229  docker push getdevops/wordpress:v1.1
+  230  docker tag wordpress getdevops/wordpress:v1.2
+  231  docker push getdevops/wordpress:v1.2
+  232  clear
+  233  touch /home/stagiaire/lab1/docker/cmd.txt
+  234  history > /home/stagiaire/lab1/docker/cmd_.txt
